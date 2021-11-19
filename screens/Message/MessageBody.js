@@ -1,13 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, ImageBackground, Image, Dimensions } from 'react-native';
-import Caroussel from './Caroussel';
-import { Icon } from 'react-native-elements'
-import { render } from 'react-dom';
+
 
 const width = Dimensions.get('window').width;
 const height = width * 1.3;
-const pp= require('../assets/publications/pp.jpg')
+const pp= require('../../assets/publications/pp.jpg')
 
 const Message = [
     {user:'test',time:'12:05',content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper"},

@@ -1,8 +1,5 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, StatusBar, Image, Dimensions} from 'react-native';
-import { Icon } from 'react-native-elements';
-import { Ionicons}  from '@expo/vector-icons'; 
-import { Button } from 'react-native-elements/dist/buttons/Button';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.16;
@@ -15,7 +12,7 @@ export default class MessageTopBar extends React.Component {
                 <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
                 <View style={styles.header}>
                     <View style={styles.topStyle} >
-                        <Image  style={styles.pp} source={require('../assets/publications/pp.jpg')}/>
+                        <Image  style={styles.pp} source={require('../../assets/publications/pp.jpg')}/>
                         <Text style={styles.textStyle}>User name</Text>
                     </View>
                 </View>

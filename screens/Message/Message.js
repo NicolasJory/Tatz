@@ -1,11 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useEffect} from 'react';
 import { StyleSheet, Text, View, ScrollView, Dimensions, FlatList  } from 'react-native';
 
-import MessageTopBar from '../components/MessageTopBar';
-import MessageBottomBar from '../components/MessageBottomBar';
-import MessageBody from '../components/MessageBody';
-import { render } from 'react-dom';
+import MessageTopBar from './MessageTopBar';
+import MessageBottomBar from './MessageBottomBar';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.125;

@@ -1,10 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
-import Publication from '../components/Publication';
 
-import SearchTopBar from '../components/SearchTopBar';
-import SearchResults from '../components/SearchResults';
+import SearchTopBar from './SearchTopBar';
+import SearchResults from './SearchResults';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.125;

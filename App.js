@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import NavBar from './components/NavBar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+
+import NavBar from './components/NavBar';
 import Add from './screens/Add';
 import Settings from './screens/Settings';
 import Map from './screens/Map';
-import HomeTopBar from './components/HomeTopBar';
 
 const getFonts = () => {
  return Font.loadAsync({

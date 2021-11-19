@@ -1,8 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, TextInput, View, StatusBar, Image, Dimensions} from 'react-native';
-import { Icon } from 'react-native-elements';
 import { Ionicons}  from '@expo/vector-icons'; 
-import { Button } from 'react-native-elements/dist/buttons/Button';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.16;
