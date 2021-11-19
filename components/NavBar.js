@@ -8,6 +8,7 @@ import Home from '../screens/Home/Home';
 import Search from '../screens/Search/Search';
 import Message from '../screens/Message/Message';
 import Idea from '../screens/Idea/Idea';
+import Profil from '../screens/Profil/Profil';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.125;
@@ -17,7 +18,7 @@ const TabArr = [
     {route: 'Search', label: 'Search', type: "Ionicons", activeIcon: 'search',  component: Search},
     {route: 'Idea', label: 'Idea', type: "FontAwesome", activeIcon: 'anchor', component: Idea},
     {route: 'Message', label: 'Message', type: "MaterialCommunityIcons", activeIcon: 'message', component: Message},
-    {route: 'Profil', label: 'Profil', type: "MaterialCommunityIcons", activeIcon: 'face', component: Home},
+    {route: 'Profil', label: 'Profil', type: "MaterialCommunityIcons", activeIcon: 'face', component: Profil},
 ];
 
 const Tab = createBottomTabNavigator();

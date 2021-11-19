@@ -34,7 +34,7 @@ const Icons = [
     {route: 'Like', label: 'Like', type: "MaterialIcons", icon: 'favorite-outline'},
 ];
 
-const Publication = () => {
+const Publication = ({navigation}) => {
 
     const showMore=(text)=>{
         const text2 = text.toString();
@@ -69,7 +69,7 @@ const Publication = () => {
                     <View style={styles.header}>
                         <Image  style={styles.pp} source={item.pp}/>
                         <View>
-                            <Text style={styles.artist} >{item.artist}</Text>
+                            <Text style={styles.artist} onPress={() => navigation.navigate('Profils')} >{item.artist}</Text>
                             <Text style={styles.studio} > - {item.studio}</Text>
                         </View>
                     </View>

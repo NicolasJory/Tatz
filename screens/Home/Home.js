@@ -12,7 +12,7 @@ const Home = ({navigation}) => {
       <View style={styles.container}>
         <HomeTopBar navigation={navigation}/>
         <ScrollView style={{borderBottomColor:'rgba(96, 44, 201, 1)',borderBottomWidth:2}}>      
-            <Publication/>
+            <Publication navigation={navigation}/>
         </ScrollView>
       </View>
     )

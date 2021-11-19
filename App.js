@@ -11,6 +11,7 @@ import Add from './screens/Add';
 import Settings from './screens/Settings';
 import Map from './screens/Map';
 import AddIdea from './screens/AddIdea';
+import Profils from './screens/Profils/Profils'
 
 const getFonts = () => {
  return Font.loadAsync({
@@ -35,6 +36,7 @@ export default function App() {
                     <Stack.Screen name="Add" component={Add} />
                     <Stack.Screen name="Map" component={Map} />
                     <Stack.Screen name="AddIdea" component={AddIdea} />
+                    <Stack.Screen name="Profils" component={Profils} />
                 </Stack.Navigator> 
             </NavigationContainer>
         )
