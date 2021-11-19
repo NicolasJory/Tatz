@@ -39,7 +39,7 @@ const Publication = () => {
     const showMore=(text)=>{
         const text2 = text.toString();
         const [isTruncated, setIsTruncated ] = useState(true);
-        const resultText = isTruncated ? text2.substr(0,100) : text;
+        const resultText = isTruncated ? text2.substr(0,250) : text;
 
         function toggleIsTruncated(){
             setIsTruncated(!isTruncated);
@@ -102,7 +102,6 @@ const Publication = () => {
 const styles = StyleSheet.create({
     
     publicationStyle: {
-        flex: 1,
         width,
         backgroundColor: 'black',
     },
@@ -110,7 +109,7 @@ const styles = StyleSheet.create({
             borderTopColor: 'rgba(96, 44, 201, 1)',
             borderTopWidth: 5,
             backgroundColor: 'rgb(204, 179, 255)',
-            height: width*0.13,
+            height: width*0.15,
             width: width,
             flexWrap: 'wrap', 
             alignItems: 'flex-start',
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
                 },
         footer:{
             backgroundColor: 'rgb(204, 179, 255)',
-            height: width*0.12,
+            height: width*0.14,
             width: width,
         },
             fav:{

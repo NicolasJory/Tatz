@@ -6,9 +6,11 @@ import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
 import NavBar from './components/NavBar';
+
 import Add from './screens/Add';
 import Settings from './screens/Settings';
 import Map from './screens/Map';
+import AddIdea from './screens/AddIdea';
 
 const getFonts = () => {
  return Font.loadAsync({
@@ -27,13 +29,12 @@ export default function App() {
         return(
             
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="NavBar"  screenOptions={{   
-                    headerShown: false,         
-                }}  >
-                    <Stack.Screen name="NavBar" component={NavBar} />
+                <Stack.Navigator initialRouteName="NavBar"  >
+                    <Stack.Screen name="NavBar" component={NavBar} options={{ headerShown: false }} />
                     <Stack.Screen name="Settings" component={Settings} />
                     <Stack.Screen name="Add" component={Add} />
                     <Stack.Screen name="Map" component={Map} />
+                    <Stack.Screen name="AddIdea" component={AddIdea} />
                 </Stack.Navigator> 
             </NavigationContainer>
         )

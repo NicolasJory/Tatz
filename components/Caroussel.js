@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View, ScrollView, ImageBackground, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Dimensions } from 'react-native';
 import React from 'react';
-import { render } from 'react-dom';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.6;

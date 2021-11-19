@@ -12,10 +12,9 @@ const IdeaTopBar = ({navigation}) => {
                 <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
                 <View style={styles.header}>
                     <View styl={styles.titleStyle}>
-                        <Text style={styles.textStyle}>TATZ</Text>
+                        <Text style={styles.textStyle}>My Ideas</Text>
                     </View>
                     <View style={styles.icons}>
-                        <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="entypo" name="squared-plus" onPress={() => navigation.navigate('Add')}/>
                         <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="feather" name="settings" onPress={() => navigation.navigate('Settings')}/>
                     </View>
                 </View>
