@@ -4,21 +4,21 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'rea
 import { Icon } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable';
 
-import Home from '../screens/Home/Home';
-import Search from '../screens/Search/Search';
+import HomeNav from '../screens/Home/HomeNav';
+import SearchNav from '../screens/Search/SearchNav';
 import Message from '../screens/Message/Message';
-import Idea from '../screens/Idea/Idea';
-import Profil from '../screens/Profil/Profil';
+import IdeaNav from '../screens/Idea/IdeaNav';
+import ProfilNav from '../screens/Profil/ProfilNav';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.125;
 
 const TabArr = [
-    {route: 'Home', label: 'Home', type: "Ionicons", activeIcon: 'home', component: Home},
-    {route: 'Search', label: 'Search', type: "Ionicons", activeIcon: 'search',  component: Search},
-    {route: 'Idea', label: 'Idea', type: "FontAwesome", activeIcon: 'anchor', component: Idea},
+    {route: 'HomeNav', label: 'Home', type: "Ionicons", activeIcon: 'home', component: HomeNav},
+    {route: 'SearchNav', label: 'Search', type: "Ionicons", activeIcon: 'search',  component: SearchNav},
+    {route: 'IdeaNav', label: 'Idea', type: "FontAwesome", activeIcon: 'anchor', component: IdeaNav},
     {route: 'Message', label: 'Message', type: "MaterialCommunityIcons", activeIcon: 'message', component: Message},
-    {route: 'Profil', label: 'Profil', type: "MaterialCommunityIcons", activeIcon: 'face', component: Profil},
+    {route: 'ProfilNav', label: 'Profil', type: "MaterialCommunityIcons", activeIcon: 'face', component: ProfilNav},
 ];
 
 const Tab = createBottomTabNavigator();

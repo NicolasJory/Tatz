@@ -36,7 +36,7 @@ const FetchResults = [
     {route: 'Home',like:1545, artist:'Jinjer',studio: 'el copsos',title: "Isaac lived alone", img: require('../../assets/publications/pub4.jpg'), pp: require('../../assets/publications/pp.jpg'),desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper orci sed risus dapibus bibendum. Quisque sagittis mi quis sapien rhoncus, vitae ullamcorper enim maximus. Nullam nec auctor elit. Phasellus et pulvinar elit. Fusce pellentesque augue in elit mollis, sed mattis nisl iaculis. Vivamus maximus leo in leo scelerisque luctus. Aenean lobortis ac est vitae volutpat. Fusce dui augue, ultricies eu ante id, tincidunt vulputate ligula. Nulla a porta lectus. In in ligula lacus. Suspendisse in augue imperdiet, placerat tellus sed, ultricies velit."},
 ];
 
-const SearchResults = () => {
+const SearchResults = ({navigation}) => {
 
     return (
         FetchResults.map((item, index) => {
@@ -49,7 +49,7 @@ const SearchResults = () => {
                         <View style={styles.footer}>
                                 <Image  style={styles.pp} source={item.pp}/>
                                 <View>
-                                    <Text style={styles.artist} >{item.artist}</Text>
+                                    <Text style={styles.artist} onPress={() => navigation.navigate('Profils', {params: {pp: item.pp, studio: item.studio, artist: item.artist} })}>{item.artist}</Text>
                                     <Text style={styles.studio} > - {item.studio}</Text>
                                 </View>
                                 <View style={styles.test}>

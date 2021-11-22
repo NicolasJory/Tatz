@@ -12,7 +12,7 @@ const Search = ({navigation}) => {
       <View style={styles.container}>
         <ScrollView>  
             <SearchTopBar navigation={navigation}/>
-            <SearchResults/> 
+            <SearchResults navigation={navigation}/> 
         </ScrollView>
       </View>
     )
