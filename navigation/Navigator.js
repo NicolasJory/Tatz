@@ -25,7 +25,7 @@ const TabArr = [
     {route: 'HomeNav', label: 'Home', type: "Ionicons", activeIcon: 'home', component: HomeNav},
     {route: 'SearchNav', label: 'Search', type: "Ionicons", activeIcon: 'search',  component: SearchNav},
     {route: 'IdeaNav', label: 'Idea', type: "FontAwesome", activeIcon: 'anchor', component: IdeaNav},
-    {route: 'Message', label: 'Message', type: "MaterialCommunityIcons", activeIcon: 'message', component: MessageNav},
+    {route: 'MessageNav', label: 'Message', type: "MaterialCommunityIcons", activeIcon: 'message', component: MessageNav},
     {route: 'ProfilNav', label: 'Profil', type: "MaterialCommunityIcons", activeIcon: 'face', component: ProfilNav},
 ];
 
@@ -141,24 +141,23 @@ function HomeNav () {
                 <HomeStack.Navigator initialRouteName="Home"  >
                     <HomeStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                     <HomeStack.Screen name="Profils" component={Profils} options={options=>
-                        {
-                            return {
-                                title: options.route.params.params.artist,
-                                headerStyle:{
-                                   backgroundColor: "rgb(204, 179, 255)",
-                                },
-                                headerTintColor: 'rgba(96, 44, Nav01, 1)',
-                                headerTitleStyle:{
-                                   fontSize: width/15,
-                                   fontFamily: 'rooters',
-                                },
-                               };
-                           }
-                        }
-                        />
+                    {
+                        return {
+                            title: options.route.params.params.artist,
+                            headerStyle:{
+                               backgroundColor: "rgb(204, 179, 255)",
+                            },
+                            headerTintColor: 'rgba(96, 44, 201, 1)',
+                            headerTitleStyle:{
+                               fontSize: width/15,
+                               fontFamily: 'rooters',
+                            },
+                           };
+                       }
+                    }
+                    />
                 </HomeStack.Navigator> 
-    )
-};
+    )};
 
 const SearchStack = createNativeStackNavigator();
 
