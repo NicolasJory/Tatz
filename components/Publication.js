@@ -69,7 +69,7 @@ const Publication = ({navigation}) => {
                     <View style={styles.header}>
                         <Image  style={styles.pp} source={item.pp}/>
                         <View>
-                            <Text style={styles.artist} onPress={() => navigation.navigate('Profils')} >{item.artist}</Text>
+                            <Text style={styles.artist} onPress={() => navigation.navigate('Profils', {params: {pp: item.pp, studio: item.studio, artist: item.artist} })} >{item.artist}</Text>
                             <Text style={styles.studio} > - {item.studio}</Text>
                         </View>
                     </View>
