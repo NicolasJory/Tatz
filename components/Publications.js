@@ -63,13 +63,14 @@ const Publication = ({navigation}) => {
     }
 
     return (
-        Publis.map((item, index) => {
+        <ScrollView style={{borderBottomColor:'rgba(96, 44, 201, 1)',borderBottomWidth:2, marginBottom: width*0.125}}>
+        {Publis.map((item, index) => {
             return(
                 <View key={index} style={styles.publicationStyle}>
                     <View style={styles.header}>
                         <Image  style={styles.pp} source={item.pp}/>
                         <View>
-                            <Text style={styles.artist} onPress={() => navigation.navigate('Profils', {params: {pp: item.pp, studio: item.studio, artist: item.artist} })} >{item.artist}</Text>
+                            <Text style={styles.artist} onPress={() => navigation.navigate('ProfilsNav', {pp: item.pp, studio: item.studio, artist: item.artist})} >{item.artist}</Text>
                             <Text style={styles.studio} > - {item.studio}</Text>
                         </View>
                     </View>
@@ -95,7 +96,8 @@ const Publication = ({navigation}) => {
                     </View>
                 </View>
             )
-        })  
+        })}  
+        </ScrollView>
     )
 };
 

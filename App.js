@@ -12,12 +12,12 @@ const getFonts = () => {
  })
 };
 
-export default function App() {
+export default function App({navigation}) {
     const [fontsLoadead, setFontsLoaded] = useState(false);
 
     if (fontsLoadead){
         return(
-            <Navigator/>
+            <Navigator navigation={navigation}/>
         )
     }else{
         return (

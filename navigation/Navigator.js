@@ -15,8 +15,8 @@ import Search from '../screens/Search/Search';
 import Message from '../screens/Message/Message';
 import Idea from '../screens/Idea/Idea';
 import Profil from '../screens/Profil/Profil';
-import Profils from '../screens/Profils/Profils'
-
+import Profils from '../screens/Profils/Profils';
+import Publications from '../components/Publications';
 
 const width = Dimensions.get('window').width;
 const height = width * 0.125;
@@ -140,22 +140,7 @@ function HomeNav () {
     return (
                 <HomeStack.Navigator initialRouteName="Home"  >
                     <HomeStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-                    <HomeStack.Screen name="Profils" component={Profils} options={options=>
-                    {
-                        return {
-                            title: options.route.params.params.artist,
-                            headerStyle:{
-                               backgroundColor: "rgb(204, 179, 255)",
-                            },
-                            headerTintColor: 'rgba(96, 44, 201, 1)',
-                            headerTitleStyle:{
-                               fontSize: width/15,
-                               fontFamily: 'rooters',
-                            },
-                           };
-                       }
-                    }
-                    />
+                    <HomeStack.Screen name="ProfilsNav" component={ProfilsNav} options={{headerShown: false}}/>
                 </HomeStack.Navigator> 
     )};
 
@@ -166,22 +151,7 @@ function SearchNav() {
             <SearchStack.Navigator initialRouteName="Search"  >
                 <SearchStack.Screen name="Search" component={Search} options={{ headerShown: false }} />
                 <SearchStack.Screen name="Map" component={Map} options={headerOptions()}/>
-                <SearchStack.Screen name="Profils" component={Profils} options={options=>
-                    {
-                        return {
-                            title: options.route.params.params.artist,
-                            headerStyle:{
-                               backgroundColor: "rgb(204, 179, 255)",
-                            },
-                            headerTintColor: 'rgba(96, 44, 201, 1)',
-                            headerTitleStyle:{
-                               fontSize: width/15,
-                               fontFamily: 'rooters',
-                            },
-                           };
-                       }
-                    }
-                    />
+                <SearchStack.Screen name="ProfilsNav" component={ProfilsNav} options={{headerShown: false}}/>
             </SearchStack.Navigator> 
     )};
 
@@ -213,6 +183,31 @@ function ProfilNav() {
             </ProfilStack.Navigator> 
     )}
 
+const ProfilsStack = createNativeStackNavigator();
+
+function ProfilsNav (props) {
+    return (
+            <ProfilsStack.Navigator initialRouteName="Profils">
+                <ProfilsStack.Screen name="Profils" children={()=><Profils navigation={props.navigation} pp={props.route.params.pp} studio={props.route.params.studio} artist= {props.route.params.artist}/>} options={()=>
+                    {
+                        return {
+                            title: props.route.params.artist,
+                            headerStyle:{
+                                backgroundColor: "rgb(204, 179, 255)",
+                            },
+                            headerTintColor: 'rgba(96, 44, 201, 1)',
+                            headerTitleStyle:{
+                                fontSize: width/15,
+                                fontFamily: 'rooters',
+                            },
+                            
+                        }; 
+                    }
+                    
+                }/>
+                <ProfilsStack.Screen name="Publications"  component={Publications} options={headerOptions()} />
+            </ProfilsStack.Navigator> 
+        )};
 
 
 const MainStack = createNativeStackNavigator();

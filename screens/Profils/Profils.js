@@ -1,33 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import Icon from 'react-native-ionicons';
+import { Icon } from 'react-native-elements'
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-export default class Caroussel extends React.Component {
+
+
+export default class Profils extends React.Component {
     render(){
         return (
           <View style={styles.container}>
             <ScrollView stickyHeaderIndices={[1]} style={{borderBottomWidth: 1,borderBottomColor:"rgba(96, 44, 201, 1)"}}>
               <View style={styles.header}>
                 <View style={styles.title}>
-                  <Image style={styles.pp} source={this.props.route.params.params.pp}/>
+                  <Image style={styles.pp} source={this.props.pp}/>
                   <View style={styles.titleText}>
-                    <Text style={styles.artist}>{this.props.route.params.params.artist}</Text>
-                    <Text style={styles.studio}>{this.props.route.params.params.studio}</Text>
+                    <Text style={styles.artist}>{this.props.artist}</Text>
+                    <Text style={styles.studio}>{this.props.studio}</Text>
                   </View> 
                   <View style={styles.button}>
                     <Button color= 'rgba(96, 44, 201, 1)' title="follow">Follow</Button> 
                   </View>
                 </View>
                 <View style={styles.description}>
-                  <Text>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…). ... L'étude formelle des textes s'appuie sur la linguistique, qui est l'approche scientifique du langage</Text>
+                  <Text style={styles.descText}>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…). ... L'étude formelle des textes s'appuie sur la linguistique, qui est l'approche scientifique du langage</Text>
                 </View>
               </View>
               <View style={styles.tabNav}>
-                <Icon></Icon>
+                <Icon size={width/14} type= "Ionicons" name="home" onPress={() => this.props.navigation.navigate("Publications")}/>
+                <Icon size={width/14} type= "Ionicons" name="home"/>
+                <Icon size={width/14} type= "Ionicons" name="home"/>
+                <Icon size={width/14} type= "Ionicons" name="home"/>
               </View>
             </ScrollView>
           </View>
@@ -83,12 +87,15 @@ const styles = StyleSheet.create({
     },
     description:{
       flex:1,
+    },
+    descText:{
       padding: width/30,
+      fontSize: width/30,
     },
     tabNav:{
       flex:1,
       flexWrap: 'wrap', 
       flexDirection:'row',
-    }
+    },
     
   });

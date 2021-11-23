@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
-import Publication from '../../components/Publication';
+import Publications from '../../components/Publications';
 
 import HomeTopBar from './HomeTopBar';
 
@@ -11,9 +11,7 @@ const Home = ({navigation}) => {
     return (
       <View style={styles.container}>
         <HomeTopBar navigation={navigation}/>
-        <ScrollView style={{borderBottomColor:'rgba(96, 44, 201, 1)',borderBottomWidth:2}}>      
-            <Publication navigation={navigation}/>
-        </ScrollView>
+        <Publications navigation={navigation}/>
       </View>
     )
 };
