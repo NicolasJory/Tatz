@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, Button } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Icon } from 'react-native-elements'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import Bar from '../../components/Profils/Bar';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -27,11 +27,8 @@ export default class Profils extends React.Component {
                   <Text style={styles.descText}>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…). ... L'étude formelle des textes s'appuie sur la linguistique, qui est l'approche scientifique du langage</Text>
                 </View>
               </View>
-              <View style={styles.tabNav}>
-                <Icon size={width/14} type= "Ionicons" name="home" onPress={() => this.props.navigation.navigate("Publications")}/>
-                <Icon size={width/14} type= "Ionicons" name="home"/>
-                <Icon size={width/14} type= "Ionicons" name="home"/>
-                <Icon size={width/14} type= "Ionicons" name="home"/>
+              <View>
+                <Bar navigation={this.props.navigation}/>
               </View>
             </ScrollView>
           </View>
@@ -93,9 +90,10 @@ const styles = StyleSheet.create({
       fontSize: width/30,
     },
     tabNav:{
-      flex:1,
+      height: height*0.05,
+      backgroundColor:'red',
       flexWrap: 'wrap', 
-      flexDirection:'row',
+      justifyContent:'space-around', 
     },
     
   });

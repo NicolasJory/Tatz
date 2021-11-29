@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Dimensions } from 'react-native';
 import { Icon } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable';
 import { NavigationContainer } from '@react-navigation/native';
