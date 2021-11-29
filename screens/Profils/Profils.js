@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, Button } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import Bar from '../../components/Profils/Bar';
+import ProfilsBar from '../../components/Profils/ProfilsBar';
+import ProfilsPublication from '../../components/Profils/ProfilsPublication';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -28,7 +29,10 @@ export default class Profils extends React.Component {
                 </View>
               </View>
               <View>
-                <Bar navigation={this.props.navigation}/>
+                <ProfilsBar/>
+              </View>
+              <View>
+                <ProfilsPublication navigation={this.props.navigation}/>
               </View>
             </ScrollView>
           </View>
@@ -41,8 +45,10 @@ export default class Profils extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex:1,
-      paddingBottom: (width*0.125),
+      paddingBottom: (width*0.118),
       backgroundColor: 'rgb(204, 179, 255)',
+      borderBottomWidth:1,
+      borderBottomColor: 'rgba(96, 44, 201, 1)',
     },
     header:{
       height: height*0.33,
