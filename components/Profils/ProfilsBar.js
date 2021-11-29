@@ -13,7 +13,6 @@ const TabArr = [
 ];
 
 export default function profilsBar () {
-
   const [isPress, setIsPress] = useState(0);
   return(
       <View style={styles.tabNav}>
@@ -22,7 +21,7 @@ export default function profilsBar () {
               <TouchableHighlight
                   key={index} 
                   activeOpacity={1}
-                  underlayColor='rgb(96, 44, 201)'
+                  underlayColor='rgba(96, 44, 201,0.5)'
                   style={isPress===index ? styles.containerPress : styles.container} 
                   onPress={() => {setIsPress(index)}}
               >

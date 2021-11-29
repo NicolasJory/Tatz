@@ -28,15 +28,17 @@ export default class Profils extends React.Component {
                   <Text style={styles.descText}>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…). ... L'étude formelle des textes s'appuie sur la linguistique, qui est l'approche scientifique du langage</Text>
                 </View>
               </View>
-              <View>
+              <>
                 <ProfilsBar/>
-              </View>
-              <View>
+              </>
+              <>
+              
                 <ProfilsPublication navigation={this.props.navigation}/>
-              </View>
+              </>
             </ScrollView>
           </View>
           )
+          
     }
 
  

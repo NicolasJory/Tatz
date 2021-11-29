@@ -11,12 +11,16 @@ const HomeTopBar = ({navigation}) => {
             <SafeAreaView style={styles.container}>
                 <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
                 <View style={styles.header}>
-                    <View styl={styles.titleStyle}>
+                    <View style={{flex:5}}>
                         <Text style={styles.textStyle}>TATZ</Text>
                     </View>
-                    <View style={styles.icons}>
-                        <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="entypo" name="squared-plus" onPress={() => navigation.navigate('Add')}/>
-                        <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="feather" name="settings" onPress={() => navigation.navigate('Settings')}/>
+                    <View style={{flex:1, flexDirection:'row', justifyContent:'space-around'}}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Add')}> 
+                            <Icon color = 'rgba(96, 44, 201, 1)' size={(width/18)} type="entypo" name="squared-plus" />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Settings')}> 
+                            <Icon color = 'rgba(96, 44, 201, 1)' size={(width/18)} type="ionicons" name="settings" />
+                        </TouchableOpacity>
                     </View>
                 </View>
             </SafeAreaView>
@@ -34,27 +38,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
         header:{
-            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection:'row',
         },
-            titleStyle:{
-                flexDirection:'row',
-                position: 'absolute',
-                margin:(width/50),
-            },
-                textStyle:{
-                    fontSize: (width/15),
-                    marginLeft: (width/15),
-                    color: 'rgba(96, 44, 201, 1)',
-                    fontFamily: 'rooters',
-                },
-            icons:{
-                flexDirection:'row',
-                right:10,
-                position: 'absolute',
-            },
-                iconStyle:{
-                    marginRight: (width/30),
-                }
+        textStyle:{
+            fontSize: (width/15),
+            marginLeft: (width/15),
+            color: 'rgba(96, 44, 201, 1)',
+            fontFamily: 'rooters',
+        },
                 
 });
 

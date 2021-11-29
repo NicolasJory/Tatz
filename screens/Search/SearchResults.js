@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image, Dimensions } from 'react-native';
 import Caroussel from '../../components/Caroussel';
+import { Icon } from 'react-native-elements';
 
 
 const width = Dimensions.get('window').width;
@@ -49,10 +50,19 @@ const SearchResults = ({navigation}) => {
                         <View style={styles.footer}>
                                 <Image  style={styles.pp} source={item.pp}/>
                                 <View>
-                                    <Text style={styles.artist} onPress={() => navigation.navigate('ProfilsNav', {pp: item.pp, studio: item.studio, artist: item.artist})}>{item.artist}</Text>
-                                    <Text style={styles.studio} > - {item.studio}</Text>
-                                </View>
-                                <View style={styles.test}>
+                                    <TouchableOpacity 
+                                        activeOpacity={0.5}
+                                        onPress={() => navigation.navigate('ProfilsNav', {pp: item.pp, studio: item.studio, artist: item.artist})}
+                                        style={styles.TouchableOpacity}
+                                    >
+                                        <Text style={styles.artist}>
+                                            {item.artist}
+                                        </Text>
+                                        <Icon  style={styles.icon} color={'rgba(0,0,0,0.7)'} size={width/26} type= "antdesign" name= 'arrowright'/>
+                                    </TouchableOpacity> 
+                                    <Text style={styles.studio}> - {item.studio}</Text>
+                                </View> 
+                                {/* <View style={styles.test}>
                                     {Filter.map((item, index) => {
                                         if (index == 3) {
                                             return(
@@ -73,7 +83,7 @@ const SearchResults = ({navigation}) => {
                                             }    
                                         }    
                                     )}
-                                </View>
+                                </View> */}
                         </View>
                     </View> 
                 </View>
@@ -99,11 +109,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',      
     },
         footer:{
-
-            left: 0,
-            height: width*0.13,
-            width: width,
+            borderTopColor: 'rgba(96, 44, 201, 1)',
+            borderTopWidth: 5,
+            backgroundColor: 'rgb(204, 179, 255)',
             flexWrap: 'wrap', 
+            alignItems: 'flex-start',
+            flexDirection:'row',
             padding: (width/50),
         },   
             pp: {
@@ -113,20 +124,30 @@ const styles = StyleSheet.create({
                 borderColor: 'rgba(96, 44, 201, 1)',
                 borderWidth: 1,
             },
-                artist: {
-                    alignSelf: 'flex-start',
-                    fontSize: (width/25),
-                    marginLeft: (width/25),
-                    color: 'black',
-                    fontFamily: 'rooters',
-                },
-                studio: {
-                    alignSelf: 'flex-start',
-                    marginLeft: (width/20),
-                    fontSize: (width/30),
-                    color: 'black',
-                    opacity: 0.7,
-                },
+            TouchableOpacity:{
+                alignItems: 'center',
+                flexDirection:'row',
+                justifyContent:'center',
+            },
+            artist: {
+                alignSelf: 'flex-start',
+                fontSize: (width/20),
+                marginLeft: (width/25),
+                color: 'black',
+                fontFamily: 'rooters',
+            },
+            
+            icon:{
+                marginLeft: (width/60),
+                alignSelf: 'center',
+            },
+            studio: {
+                alignSelf: 'center',
+                marginLeft: (width/20),
+                fontSize: (width/30),
+                color: 'black',
+                opacity: 0.7,
+            },
                 filterStyle: {
                     position: 'absolute',
                     right: (width/50),

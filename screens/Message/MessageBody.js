@@ -60,7 +60,7 @@ export default class MessageBody extends React.Component {
                                     <Text style={styles.timeStyle}>
                                         {item.time}
                                     </Text>
-                                    <View key={index} style={styles.yourContainer}>
+                                    <View style={styles.yourContainer}>
                                         <Text style={styles.yourTextStyle}>
                                             {item.content}
                                         </Text>

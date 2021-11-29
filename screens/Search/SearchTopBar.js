@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View, StatusBar, TextInput, Dimensions} from 'react-native';
+import { SafeAreaView,TouchableOpacity, StyleSheet, Text, View, StatusBar, TextInput, Dimensions} from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Ionicons}  from '@expo/vector-icons'; 
 import { Button } from 'react-native-elements/dist/buttons/Button';
@@ -28,12 +28,16 @@ export default class SearchTopBar extends React.Component {
             <SafeAreaView style={styles.container}>
                 <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
                 <View style={styles.header}>
-                    <View style={styles.topStyle} >
+                    <View style={{flex:4}} >
                         <TextInput style={styles.searchStyle} placeholder="Search here ..."/>
                     </View>
-                    <View style={styles.icons}>
-                        <Icon style={styles.iconStyle, {marginRight:(width/11)}} color = 'rgba(96, 44, 201, 1)' size={(width/25)} type="entypo" name="map" onPress={() => this.props.navigation.navigate('Map')}/>
-                        <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="feather" name="settings" onPress={() => this.props.navigation.navigate('Settings')}/>
+                    <View style={{flex:1, flexDirection:'row', justifyContent:'space-around'}}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Map')}> 
+                            <Icon color = 'rgba(96, 44, 201, 1)' size={(width/18)} type="entypo" name="map" />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Settings')}> 
+                            <Icon color = 'rgba(96, 44, 201, 1)' size={(width/18)} type="ionicons" name="settings" />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.body}>
@@ -80,15 +84,11 @@ const styles = StyleSheet.create({
         borderBottomColor: 'rgba(96, 44, 201, 1)',
         justifyContent: 'center',
     },
-        header:{
-            justifyContent: 'center',
-            height: (width/5.5),
-        },
-            
-            topStyle:{
-                margin:(width/50),    
-            },
-
+    header:{
+        alignItems: 'center',
+        flexDirection:'row',
+        padding: width/50,
+    },
                 searchStyle:{
                     paddingLeft: (width/25),
                     paddingRight: (width/12),
@@ -96,21 +96,11 @@ const styles = StyleSheet.create({
                     fontSize: (width/25),
                     marginLeft: (width/50),
                     color: 'black',
-                    fontFamily: "rooters",
-                    width: (width/1.25),
+                    width: (width/1.18),
                     backgroundColor: "white",
                     borderRadius: 25,
                     borderColor: 'rgba(96, 44, 201, 1)',
                     borderWidth: 1,
-                },
-            icons:{
-                flexDirection:'row',
-                right:25,
-                position: 'absolute',
-                alignItems:'center',
-            },
-                iconStyle:{
-                    marginRight: (width/20),
                 },
         body:{
             flexDirection: 'row'

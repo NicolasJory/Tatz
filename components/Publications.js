@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, Image, Dimensions } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, ScrollView, ImageBackground, Image, Dimensions } from 'react-native';
 import Caroussel from './Caroussel';
 import { Icon } from 'react-native-elements'
 import { render } from 'react-dom';
@@ -70,9 +70,18 @@ const Publication = ({navigation}) => {
                     <View style={styles.header}>
                         <Image  style={styles.pp} source={item.pp}/>
                         <View>
-                            <Text style={styles.artist} onPress={() => navigation.navigate('ProfilsNav', {pp: item.pp, studio: item.studio, artist: item.artist})} >{item.artist}</Text>
-                            <Text style={styles.studio} > - {item.studio}</Text>
-                        </View>
+                            <TouchableOpacity 
+                                activeOpacity={0.5}
+                                onPress={() => navigation.navigate('ProfilsNav', {pp: item.pp, studio: item.studio, artist: item.artist})}
+                                style={styles.TouchableOpacity}
+                            >
+                                <Text style={styles.artist}>
+                                    {item.artist}
+                                </Text>
+                                <Icon  style={styles.icon} color={'rgba(0,0,0,0.7)'} size={width/26} type= "antdesign" name= 'arrowright'/>
+                            </TouchableOpacity> 
+                            <Text style={styles.studio}> - {item.studio}</Text>
+                        </View>                  
                     </View>
                     <Caroussel images={images}/>
                     <View style={styles.footer}>
@@ -111,8 +120,6 @@ const styles = StyleSheet.create({
             borderTopColor: 'rgba(96, 44, 201, 1)',
             borderTopWidth: 5,
             backgroundColor: 'rgb(204, 179, 255)',
-            height: width*0.15,
-            width: width,
             flexWrap: 'wrap', 
             alignItems: 'flex-start',
             flexDirection:'row',
@@ -125,15 +132,25 @@ const styles = StyleSheet.create({
                 borderColor: 'rgba(96, 44, 201, 1)',
                 borderWidth: 1,
             },
+            TouchableOpacity:{
+                alignItems: 'center',
+                flexDirection:'row',
+                justifyContent:'center',
+            },
                 artist: {
                     alignSelf: 'flex-start',
-                    fontSize: (width/25),
+                    fontSize: (width/20),
                     marginLeft: (width/25),
                     color: 'black',
                     fontFamily: 'rooters',
                 },
+                
+                icon:{
+                    marginLeft: (width/60),
+                    alignSelf: 'center',
+                },
                 studio: {
-                    alignSelf: 'flex-start',
+                    alignSelf: 'center',
                     marginLeft: (width/20),
                     fontSize: (width/30),
                     color: 'black',
@@ -156,7 +173,7 @@ const styles = StyleSheet.create({
                 position: 'absolute',
             },
                 like: {
-                    textAlign: 'center',
+                    alignItems: 'center',
                 },  
         text:{
             width: width,
