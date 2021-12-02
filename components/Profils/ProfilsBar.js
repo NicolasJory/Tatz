@@ -21,11 +21,11 @@ export default function profilsBar () {
               <TouchableHighlight
                   key={index} 
                   activeOpacity={1}
-                  underlayColor='rgba(96, 44, 201,0.5)'
+                  underlayColor= {global.contrastColor}
                   style={isPress===index ? styles.containerPress : styles.container} 
                   onPress={() => {setIsPress(index)}}
               >
-                        <Icon  color={isPress===index ? 'white' : 'rgb(96, 44, 201)'} size={width/14} type={item.type} name={item.activeIcon}/>
+                        <Icon  color={isPress===index ? 'white' : 'rgb(100, 100, 100)'} size={width/14} type={item.type} name={item.activeIcon}/>
               </TouchableHighlight>
           )
         })}
@@ -46,8 +46,8 @@ const styles = StyleSheet.create ({
       justifyContent: 'center',
       height: height*0.05,    
       width:(width/5),
-      backgroundColor:'rgb(96, 44, 201)',
-      borderBottomColor:'white',
+      backgroundColor: global.color,
+      borderBottomColor: global.contrastColor,
       borderBottomWidth:4,
     },
     container:{
@@ -55,8 +55,8 @@ const styles = StyleSheet.create ({
       justifyContent: 'center',
       height: height*0.05,    
       width:(width/5),
-      backgroundColor:'rgb(204, 179, 255)', 
-      borderBottomColor:'rgb(96, 44, 201)',
+      backgroundColor: global.color, 
+      borderBottomColor:global.contrastColor,
       borderBottomWidth:1, 
     }
   });

@@ -71,12 +71,12 @@ const TabButton = (props) => {
                 <View style={styles.button}>
                     <Animatable.View 
                         ref = {circleRef}
-                        style={{...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(146, 110, 219, 1)', borderRadius: 25}}/>
-                    <Icon type={item.type} size={(width/18)} name={item.activeIcon} color={focused ? "rgba(96, 44, 201, 1)" : "rgba(96, 44, 201, 0.5)"}/>
+                        style={{...StyleSheet.absoluteFillObject, backgroundColor: global.middleColor, borderRadius: 25}}/>
+                    <Icon type={item.type} size={(width/18)} name={item.activeIcon} color={focused ? global.contrastColor : global.contrastColorOpacity}/>
                 </View>
                 <Animatable.Text
                     ref={textRef}
-                    style={{fontSize: (width/30), fontFamily: 'rooters',textAlign: 'center', color: 'rgba(96, 44, 201, 1)' }}
+                    style={{fontSize: (width/30), fontFamily: 'rooters',textAlign: 'center', color: global.contrastColor }}
                 >
                     {item.label}
                 </Animatable.Text>
@@ -96,7 +96,7 @@ class NavBar extends React.Component {
                     {
                         display: "flex",
                         position: 'absolute',
-                        backgroundColor: 'rgb(204, 179, 255)',
+                        backgroundColor: global.color,
                         height: height,
                     },
                     ],
@@ -120,13 +120,13 @@ class NavBar extends React.Component {
 const headerOptions = () => {
     return {
      headerStyle:{
-        backgroundColor: "rgb(204, 179, 255)",
+        backgroundColor: global.color,
         style:{
             borderWidth: 2,
-            bottomBorderColor: 'rgba(96, 44, 201, 1)',
+            bottomBorderColor: global.contrastColor,
          },
      },
-     headerTintColor: 'rgba(96, 44, 201, 1)',
+     headerTintColor: global.contrastColor,
      headerTitleStyle:{
         fontSize: width/15,
         fontFamily: 'rooters',
@@ -193,9 +193,9 @@ function ProfilsNav (props) {
                         return {
                             title: props.route.params.artist,
                             headerStyle:{
-                                backgroundColor: "rgb(204, 179, 255)",
+                                backgroundColor: global.color,
                             },
-                            headerTintColor: 'rgba(96, 44, 201, 1)',
+                            headerTintColor: global.contrastColor,
                             headerTitleStyle:{
                                 fontSize: width/15,
                                 fontFamily: 'rooters',
@@ -236,8 +236,8 @@ const styles = StyleSheet.create({
         height: (width/12),
         borderRadius: 25,
         borderWidth: 4,
-        borderColor: 'rgb(204, 179, 255)',
-        backgroundColor: 'rgb(204, 179, 255)',
+        borderColor: global.color,
+        backgroundColor: global.color,
         justifyContent: 'center',
         alignItems: 'center'
     }});

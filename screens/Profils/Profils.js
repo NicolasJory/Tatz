@@ -12,7 +12,7 @@ export default class Profils extends React.Component {
     render(){
         return (
           <View style={styles.container}>
-            <ScrollView stickyHeaderIndices={[1]} style={{borderBottomWidth: 1,borderBottomColor:"rgba(96, 44, 201, 1)"}}>
+            <ScrollView stickyHeaderIndices={[1]} style={{borderBottomWidth: 2,borderBottomColor:global.contrastColor}}>
               <View style={styles.header}>
                 <View style={styles.title}>
                   <Image style={styles.pp} source={this.props.pp}/>
@@ -21,7 +21,7 @@ export default class Profils extends React.Component {
                     <Text style={styles.studio}>{this.props.studio}</Text>
                   </View> 
                   <View style={styles.button}>
-                    <Button color= 'rgba(96, 44, 201, 1)' title="follow">Follow</Button> 
+                    <Button color= {global.middleColor}title="follow">Follow</Button> 
                   </View>
                 </View>
                 <View style={styles.description}>
@@ -48,16 +48,16 @@ const styles = StyleSheet.create({
     container: {
       flex:1,
       paddingBottom: (width*0.118),
-      backgroundColor: 'rgb(204, 179, 255)',
+      backgroundColor: global.color,
       borderBottomWidth:1,
-      borderBottomColor: 'rgba(96, 44, 201, 1)',
+      borderBottomColor: global.contrastColor,
     },
     header:{
       height: height*0.33,
       borderBottomWidth:1,
       borderTopWidth:1,
-      borderBottomColor: 'rgba(96, 44, 201, 1)',
-      borderTopColor: 'rgba(96, 44, 201, 1)',
+      borderBottomColor: global.contrastColorOpacity,
+      borderTopColor: global.contrastColor,
     },
     title:{
       flex:1,
@@ -69,22 +69,25 @@ const styles = StyleSheet.create({
       width: width/5,
       borderRadius:width/5,
       resizeMode: 'cover',
-      borderColor: 'rgba(96, 44, 201, 1)',
+      borderColor: global.middleColor,
       borderWidth:2,
       margin: width/18,
     },
     titleText:{
       justifyContent: 'center',
       borderBottomWidth: 1,
-      borderBottomColor: 'rgba(96, 44, 201, 1)'
+      borderBottomColor: global.contrastColorOpacity
     },
     artist:{
       fontSize: width/20,
       fontFamily: 'rooters',
+      color: global.contrastColor,
     },
     studio:{
       fontSize: width/25,
-      marginTop: width/25,
+      marginTop: width/50,
+      color: global.contrastColorOpacity,
+      alignSelf: "center",
     },
     button:{
       justifyContent: 'center',
@@ -96,10 +99,10 @@ const styles = StyleSheet.create({
     descText:{
       padding: width/30,
       fontSize: width/30,
+      color: global.contrastColor,
     },
     tabNav:{
       height: height*0.05,
-      backgroundColor:'red',
       flexWrap: 'wrap', 
       justifyContent:'space-around', 
     },

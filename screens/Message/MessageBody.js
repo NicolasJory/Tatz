@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     timeStyle:{
         alignSelf: 'center',
         fontSize:(width/50),
-        color: 'black',
+        color: global.contrastColorOpacity,
     },
     yourContainer: {
         marginVertical: (width/80),
@@ -96,16 +96,16 @@ const styles = StyleSheet.create({
         fontSize:(width/30),
         width: (width/1.4),
         padding:(width/50),
-        borderRadius: 25,
-        backgroundColor: 'rgb(238, 230, 255)',
-    },
+        borderRadius: 15,
+        backgroundColor: global.contrastColor,
+        },
     yourTextStyle:{
         marginRight: (width/50),
         fontSize:(width/30),
         width: (width/1.4),
         padding:(width/50),
-        borderRadius: 25,
-        backgroundColor: 'rgb(96, 44, 201)',
+        borderRadius: 15,
+        backgroundColor: "blue",
         color: "white",
     },
             pp: {
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
                 borderRadius: 25,
                 height: (width/15),
                 width: (width/15),
-                borderColor: 'rgba(96, 44, 201, 1)',
+                borderColor: global.middleColor,
                 borderWidth: 1,
             }  
 })

@@ -30,9 +30,8 @@ const Idea = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-      paddingBottom: height,
-      borderBottomWidth: 2,
-      backgroundColor: 'rgba(96, 44, 201, 1)',
+      flex:1,
+      backgroundColor: global.middleColor,
     }
   });
   

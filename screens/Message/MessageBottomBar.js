@@ -3,20 +3,19 @@ import { SafeAreaView, StyleSheet, TextInput, View, StatusBar, Image, Dimensions
 import { Ionicons}  from '@expo/vector-icons'; 
 
 const width = Dimensions.get('window').width;
-const height = width * 0.16;
+const height = width * 0.2;
 
 
 export default class MessageTopBar extends React.Component {
     render() {
         return(
             <SafeAreaView style={styles.container}>
-                <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
                 <View style={styles.header}>
                     <View style={styles.topStyle} >
                         <TextInput onContentSizeChange={ this._onTextContentSizeChange }numberOfLines={3} multiline={true} style={styles.textStyle} placeholder="Type text here"/>
                     </View>
                     <View style={styles.icons}>
-                        <Ionicons  style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} name="send"/>
+                        <Ionicons  style={styles.iconStyle} color = {global.contrastColor} size={(width/20)} name="send"/>
                     </View>
                 </View>
             </SafeAreaView>
@@ -31,15 +30,14 @@ const styles = StyleSheet.create({
     container:{
         width,
         height: height,
-        backgroundColor: 'rgb(204, 179, 255)',
-        borderBottomWidth: 2,
-        borderTopWidth: 2,
-        borderColor: 'rgba(96, 44, 201, 1)',
+        backgroundColor: global.color,
+        borderTopWidth: 1,
+        borderColor: global.contrastColor,
         justifyContent: 'center',
     },
         header:{
             justifyContent: 'center',
-            height: (width/8),
+            height: (width/7),
         },
             topStyle:{
                 margin:(width/30),   
@@ -56,8 +54,8 @@ const styles = StyleSheet.create({
                     color: 'black',
                     width: (width/1.25),
                     backgroundColor: "white",
-                    borderRadius: 25,
-                    borderColor: 'rgba(96, 44, 201, 1)',
+                    borderRadius: 15,
+                    borderColor: global.middleColor,
                     borderWidth: 1,
                     textAlignVertical: "top",
                     

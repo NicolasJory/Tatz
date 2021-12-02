@@ -26,23 +26,23 @@ export default class SearchTopBar extends React.Component {
     render() {
         return(
             <SafeAreaView style={styles.container}>
-                <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
+                <StatusBar backgroundColor={global.color} barStyle={'dark-content'}/>
                 <View style={styles.header}>
                     <View style={{flex:4}} >
                         <TextInput style={styles.searchStyle} placeholder="Search here ..."/>
                     </View>
                     <View style={{flex:1, flexDirection:'row', justifyContent:'space-around'}}>
                         <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Map')}> 
-                            <Icon color = 'rgba(96, 44, 201, 1)' size={(width/18)} type="entypo" name="map" />
+                            <Icon color = {global.color} size={(width/18)} type="entypo" name="map" />
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Settings')}> 
-                            <Icon color = 'rgba(96, 44, 201, 1)' size={(width/18)} type="ionicons" name="settings" />
+                            <Icon color = {global.contrastColor} size={(width/18)} type="ionicons" name="settings" />
                         </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.body}>
                     <View style={styles.filterIconStyle}>
-                        <Ionicons style={styles.iconStyle, {marginRight:(width/12)}} color = 'rgba(96, 44, 201, 1)' size={(width/14)} name="options-outline"/>
+                        <Ionicons style={styles.iconStyle, {marginRight:(width/12)}} color = {global.contrastColor} size={(width/14)} name="options-outline"/>
                     </View>
                     {Filter.map((item, index) => {
                         if (index == 3) {
@@ -79,9 +79,9 @@ export default class SearchTopBar extends React.Component {
 const styles = StyleSheet.create({
     container:{
         width,
-        backgroundColor: 'rgb(204, 179, 255)',
-        borderBottomWidth: 2,
-        borderBottomColor: 'rgba(96, 44, 201, 1)',
+        backgroundColor: global.color,
+        borderBottomWidth: 1,
+        borderBottomColor: global.contrastColor,
         justifyContent: 'center',
     },
     header:{
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
                     width: (width/1.18),
                     backgroundColor: "white",
                     borderRadius: 25,
-                    borderColor: 'rgba(96, 44, 201, 1)',
+                    borderColor: global.middleColor,
                     borderWidth: 1,
                 },
         body:{
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
                 flexDirection:'row',
                 alignItems:'center',
                 justifyContent: 'center',
-                backgroundColor: 'rgba(96, 44, 201, 1)',
+                backgroundColor: global.middleColor,
                 borderRadius: 25,
                 paddingHorizontal: (width/50),
             },

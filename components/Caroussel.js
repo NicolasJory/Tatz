@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ScrollView, Image, Dimensions } from 'react-nat
 import React from 'react';
 
 const width = Dimensions.get('window').width;
-const height = width * 0.6;
+const height = Dimensions.get('window').height;
 
 
 export default class Caroussel extends React.Component {
@@ -18,25 +18,25 @@ export default class Caroussel extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles(this.props.size).container}>
                 <ScrollView 
                     pagingEnabled 
                     horizontal 
                     onScroll={this.change}
                     showsHorizontalScrollIndicator={false} 
-                    style={styles.scroll}>
+                    style={styles().scroll}>
                     {
                         this.props.images.map((item,index) =>{
                             return (
-                                <Image key={index} source={item.img} style={styles.image}></Image>
+                                <Image key={index} source={item.img} style={styles(this.props.size).image}></Image>
                             )
                         })
                     }
                 </ScrollView>
-                <View style={styles.pagination}>
+                <View style={styles().pagination}>
                     {
                         this.props.images.map((i, index) => (
-                            <Text key={index} style={index==this.state.active ? styles.pagingActiveText : styles.pagingText}>●</Text>
+                            <Text key={index} style={index==this.state.active ? styles().pagingActiveText : styles().pagingText}>●</Text>
                         ))
                     }
                     
@@ -46,18 +46,17 @@ export default class Caroussel extends React.Component {
         }
     }
 
-const styles = StyleSheet.create({
+const styles = (props) => StyleSheet.create({
     container:{
         width,
-        height
+        height: props*1.1,
     },
     scroll:{
         width,
-        height
     },
     image: {
         width,
-        height: height*0.9,
+        height: props,
         resizeMode: 'cover'
     },
     pagingText:{
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
         fontSize: (width/30),
     },
     pagingActiveText:{
-        color: 'rgb(204, 179, 255)',
+        color: global.contrastColor,
         margin: 3,
         fontSize: (width/30),
     },
@@ -76,5 +75,5 @@ const styles = StyleSheet.create({
         bottom:0,
         alignSelf:'center'
     },
-})
+});
 

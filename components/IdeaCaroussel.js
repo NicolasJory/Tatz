@@ -46,7 +46,7 @@ export default class IdeaCaroussel extends React.Component {
                                         <Text style={styles.title}>YES</Text>
                                         <Image style={styles.image}/>
                                         <Text style={styles.description}>Button vers création idea</Text>
-                                        <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="feather" name="settings" onPress={() => this.props.navigation.navigate('AddIdea')}/>
+                                        <Icon style={styles.iconStyle} color = {global.contrastColor} size={(width/20)} type="feather" name="settings" onPress={() => this.props.navigation.navigate('AddIdea')}/>
                                     </View>
                     </View>
                 </ScrollView>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     post:{
         width: width*0.9,
         height: height*0.7,
-        backgroundColor: 'rgb(204, 179, 255)',
+        backgroundColor: global.color,
         borderRadius: 25,
         justifyContent: 'center',
     },
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         fontSize: (width/13),
         marginTop: (width/30),
         alignSelf: 'center',
-        color: 'rgba(96, 44, 201, 1)',
+        color: global.contrastColor,
         fontFamily: 'rooters',
     },
     image:{
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         flex:6,
         fontSize: (width/30),
         marginHorizontal: (width/15),
-        color: "black",
+        color: global.contrastColor,
     },
     // pagingText:{
     //     color: '#888',

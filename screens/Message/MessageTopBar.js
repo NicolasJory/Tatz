@@ -9,7 +9,7 @@ export default class MessageTopBar extends React.Component {
     render() {
         return(
             <SafeAreaView style={styles.container}>
-                <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
+                <StatusBar backgroundColor={global.color} barStyle={'dark-content'}/>
                 <View style={styles.header}>
                     <View style={styles.topStyle} >
                         <Image  style={styles.pp} source={require('../../assets/publications/pp.jpg')}/>
@@ -25,14 +25,13 @@ const styles = StyleSheet.create({
     container:{
         width,
         height: height,
-        backgroundColor: 'rgb(204, 179, 255)',
-        borderBottomWidth: 2,
-        borderBottomColor: 'rgba(96, 44, 201, 1)',
+        backgroundColor:global.color,
+        borderBottomWidth: 1,
+        borderBottomColor: global.contrastColor,
         justifyContent: 'center',
     },
         header:{
             justifyContent: 'center',
-            height: (width/8),
         },
             topStyle:{
                 margin:(width/30),   
@@ -46,13 +45,13 @@ const styles = StyleSheet.create({
                     borderRadius: 25,
                     height: (width/15),
                     width: (width/15),
-                    borderColor: 'rgba(96, 44, 201, 1)',
+                    borderColor: global.middleColor,
                     borderWidth: 1,
                 },
                 textStyle:{
                     paddingLeft: (width/25),
                     fontSize: (width/18),
-                    color: 'rgba(96, 44, 201, 1)',
+                    color: global.contrastColor,
                     fontFamily: "rooters",
                     width: (width/1.25),
                 },

@@ -48,7 +48,7 @@ const Publication = ({navigation}) => {
         return (
             <Text style={{fontSize: (width/30)}}>
                 {resultText}
-                <Text onPress={toggleIsTruncated} style={{color:'rgb(204, 179, 255)',fontSize: (width/35)}}>{isTruncated ? "... more ⇣" : "  less ⇡"}</Text>
+                <Text onPress={toggleIsTruncated} style={{color:global.contrastColorOpacity,fontSize: (width/35)}}>{isTruncated ? "... more ⇣" : "  less ⇡"}</Text>
             </Text>
         );
     }
@@ -63,7 +63,7 @@ const Publication = ({navigation}) => {
     }
 
     return (
-        <ScrollView style={{borderBottomColor:'rgba(96, 44, 201, 1)',borderBottomWidth:2, marginBottom: width*0.125}}>
+        <ScrollView style={{borderBottomColor:global.contrastColor,borderBottomWidth:2, marginBottom: width*0.125}}>
         {Publis.map((item, index) => {
             return(
                 <View key={index} style={styles.publicationStyle}>
@@ -78,22 +78,22 @@ const Publication = ({navigation}) => {
                                 <Text style={styles.artist}>
                                     {item.artist}
                                 </Text>
-                                <Icon  style={styles.icon} color={'rgba(0,0,0,0.7)'} size={width/26} type= "antdesign" name= 'arrowright'/>
+                                <Icon  style={styles.icon} color={global.contrastColorOpacity} size={width/26} type= "antdesign" name= 'arrowright'/>
                             </TouchableOpacity> 
-                            <Text style={styles.studio}> - {item.studio}</Text>
+                            <Text style={styles.studio}>{item.studio}</Text>
                         </View>                  
                     </View>
-                    <Caroussel images={images}/>
+                    <Caroussel size={width} images={images}/>
                     <View style={styles.footer}>
                         <View style={styles.fav}>
-                            <Icon  size={(width/15)} type={Icons[0].type} name={Icons[0].icon}/>
+                            <Icon  color={global.contrastColor} size={(width/15)} type={Icons[0].type} name={Icons[0].icon}/>
                         </View>
                         <View style={styles.ico}>
-                            <Icon style={{marginRight: (width/45)}} size={(width/15)} type={Icons[1].type} name={Icons[1].icon}/>
-                            <Icon style={{marginRight: (width/45)}} size={(width/15)} type={Icons[2].type} name={Icons[2].icon}/>
+                            <Icon color={global.contrastColor} style={{marginRight: (width/45)}} size={(width/15)} type={Icons[1].type} name={Icons[1].icon}/>
+                            <Icon color={global.contrastColor} style={{marginRight: (width/45)}} size={(width/15)} type={Icons[2].type} name={Icons[2].icon}/>
                             <View style={styles.like}>
-                                <Icon  size={(width/15)} type={Icons[3].type} name={Icons[3].icon}/>
-                                <Text style={{fontSize: (width/35)}}>
+                                <Icon color={global.contrastColor} size={(width/15)} type={Icons[3].type} name={Icons[3].icon}/>
+                                <Text style={{fontSize: (width/35), color:global.contrastColor}}>
                                     {calcul(item.like)}
                                 </Text>
                             </View>
@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
     
     publicationStyle: {
         width,
-        backgroundColor: 'black',
+        backgroundColor: global.color,
     },
         header:{
-            borderTopColor: 'rgba(96, 44, 201, 1)',
-            borderTopWidth: 5,
-            backgroundColor: 'rgb(204, 179, 255)',
+            borderTopColor: global.middleColor,
+            borderTopWidth: 1,
+            backgroundColor: global.color,
             flexWrap: 'wrap', 
             alignItems: 'flex-start',
             flexDirection:'row',
@@ -129,19 +129,19 @@ const styles = StyleSheet.create({
                 borderRadius: 25,
                 height: (width/15),
                 width: (width/15),
-                borderColor: 'rgba(96, 44, 201, 1)',
+                borderColor: global.middleColor,
                 borderWidth: 1,
             },
             TouchableOpacity:{
                 alignItems: 'center',
                 flexDirection:'row',
-                justifyContent:'center',
+                justifyContent:'flex-start',
             },
                 artist: {
                     alignSelf: 'flex-start',
                     fontSize: (width/20),
                     marginLeft: (width/25),
-                    color: 'black',
+                    color: global.contrastColor,
                     fontFamily: 'rooters',
                 },
                 
@@ -150,21 +150,23 @@ const styles = StyleSheet.create({
                     alignSelf: 'center',
                 },
                 studio: {
-                    alignSelf: 'center',
+                    alignSelf: 'flex-start',
                     marginLeft: (width/20),
                     fontSize: (width/30),
-                    color: 'black',
+                    color: global.contrastColor,
                     opacity: 0.7,
                 },
         footer:{
-            backgroundColor: 'rgb(204, 179, 255)',
             height: width*0.14,
             width: width,
+            position: "absolute",
+            top : width*1.17,
         },
             fav:{
                 flexDirection:'row',
                 position: 'absolute',
                 margin:(width/50),
+                
             },
             ico:{
                 flexDirection:'row',
@@ -181,14 +183,15 @@ const styles = StyleSheet.create({
         },
             title:{
                 fontSize: (width/20),
-                margin: (width/50),
-                color:'rgb(204, 179, 255)',
+                marginTop: (width/20),
+                marginLeft: (width/50),
+                color:global.contrastColor,
                 fontFamily: 'rooters',
             },
             desc:{
                 fontSize: (width/30),
                 marginHorizontal: (width/30),
-                marginBottom: (height/30),
+                marginVertical: (height/30),
                 color:'white',
                 overflow: 'visible',
             }       

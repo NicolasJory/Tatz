@@ -9,13 +9,13 @@ const height = width * 0.13;
 const ProfilTopBar = ({navigation}) => {
         return(
             <SafeAreaView style={styles.container}>
-                <StatusBar backgroundColor='rgb(204, 179, 255)' barStyle={'dark-content'}/>
+                <StatusBar backgroundColor={global.color} barStyle={'dark-content'}/>
                 <View style={styles.header}>
                     <View styl={styles.titleStyle}>
                         <Text style={styles.textStyle}>Your Username</Text>
                     </View>
                     <View style={styles.icons}>
-                        <Icon style={styles.iconStyle} color = 'rgba(96, 44, 201, 1)' size={(width/20)} type="feather" name="settings" onPress={() => navigation.navigate('Settings')}/>
+                        <Icon style={styles.iconStyle} color = {global.contrastColor} size={(width/20)} type="feather" name="settings" onPress={() => navigation.navigate('Settings')}/>
                     </View>
                 </View>
             </SafeAreaView>
@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     container:{
         width,
         height, 
-        backgroundColor: 'rgb(204, 179, 255)',
-        borderBottomWidth: 2,
-        borderBottomColor: 'rgba(96, 44, 201, 1)',
+        backgroundColor: global.color,
+        borderBottomWidth: 1,
+        borderBottomColor: global.contrastColor,
         justifyContent: 'center',
     },
         header:{
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
                 textStyle:{
                     fontSize: (width/15),
                     marginLeft: (width/15),
-                    color: 'rgba(96, 44, 201, 1)',
+                    color: global.contrastColor,
                     fontFamily: 'rooters',
                 },
             icons:{

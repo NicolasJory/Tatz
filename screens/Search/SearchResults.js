@@ -5,7 +5,6 @@ import { Icon } from 'react-native-elements';
 
 
 const width = Dimensions.get('window').width;
-const height = width * 0.75;
 
 const Filter = [
     {type: "New School"},
@@ -45,7 +44,7 @@ const SearchResults = ({navigation}) => {
                 <View key={index} style={styles.resultStyle}>
                     <View style={styles.resutlItemStyle}>
                         <View style={styles.imageStyle}>
-                            <Caroussel  images={images}/>   
+                            <Caroussel size={width*0.7} images={images}/>   
                         </View>   
                         <View style={styles.footer}>
                                 <Image  style={styles.pp} source={item.pp}/>
@@ -58,11 +57,11 @@ const SearchResults = ({navigation}) => {
                                         <Text style={styles.artist}>
                                             {item.artist}
                                         </Text>
-                                        <Icon  style={styles.icon} color={'rgba(0,0,0,0.7)'} size={width/26} type= "antdesign" name= 'arrowright'/>
+                                        <Icon  style={styles.icon} color={global.contrastColorOpacity} size={width/26} type= "antdesign" name= 'arrowright'/>
                                     </TouchableOpacity> 
-                                    <Text style={styles.studio}> - {item.studio}</Text>
+                                    <Text style={styles.studio}>{item.studio}</Text>
                                 </View> 
-                                {/* <View style={styles.test}>
+                                <View style={styles.test}>
                                     {Filter.map((item, index) => {
                                         if (index == 3) {
                                             return(
@@ -83,7 +82,7 @@ const SearchResults = ({navigation}) => {
                                             }    
                                         }    
                                     )}
-                                </View> */}
+                                </View>
                         </View>
                     </View> 
                 </View>
@@ -95,11 +94,11 @@ const SearchResults = ({navigation}) => {
 const styles = StyleSheet.create({
     
     resultStyle: {
-        height: height,
+        marginTop: width/50,
         width: width,
-        backgroundColor: 'rgb(204, 179, 255)',
-        borderBottomColor: 'rgba(96, 44, 201, 1)',
-        borderBottomWidth: 5,
+        backgroundColor: global.color,
+        borderBottomColor: global.contrastColorOpacity,
+        borderBottomWidth: 1,
     },
     resutlItemStyle:{
         justifyContent: 'center',
@@ -109,9 +108,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',      
     },
         footer:{
-            borderTopColor: 'rgba(96, 44, 201, 1)',
-            borderTopWidth: 5,
-            backgroundColor: 'rgb(204, 179, 255)',
+            backgroundColor: global.color,
             flexWrap: 'wrap', 
             alignItems: 'flex-start',
             flexDirection:'row',
@@ -121,19 +118,19 @@ const styles = StyleSheet.create({
                 borderRadius: 25,
                 height: (width/15),
                 width: (width/15),
-                borderColor: 'rgba(96, 44, 201, 1)',
+                borderColor: global.middleColor,
                 borderWidth: 1,
             },
             TouchableOpacity:{
                 alignItems: 'center',
                 flexDirection:'row',
-                justifyContent:'center',
+                justifyContent:'flex-start',
             },
             artist: {
                 alignSelf: 'flex-start',
                 fontSize: (width/20),
                 marginLeft: (width/25),
-                color: 'black',
+                color: global.contrastColor,
                 fontFamily: 'rooters',
             },
             
@@ -142,17 +139,17 @@ const styles = StyleSheet.create({
                 alignSelf: 'center',
             },
             studio: {
-                alignSelf: 'center',
+                alignSelf: 'flex-start',
                 marginLeft: (width/20),
                 fontSize: (width/30),
-                color: 'black',
+                color: global.contrastColor,
                 opacity: 0.7,
             },
                 filterStyle: {
                     position: 'absolute',
                     right: (width/50),
                     top: (width/50),
-                    backgroundColor: 'rgba(96, 44, 201, 1)',
+                    backgroundColor: global.middleColor,
                     borderRadius: 25,
                     paddingHorizontal: (width / 50),
                     flexDirection:'row',

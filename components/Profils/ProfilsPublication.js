@@ -8,6 +8,8 @@ const images = [
     {img: require('../../assets/publications/pub2.jpg')},
     {img: require('../../assets/publications/pub3.jpg')},
     {img: require('../../assets/publications/pub4.jpg')},
+    {img: require('../../assets/publications/pub3.jpg')},
+    {img: require('../../assets/publications/pub4.jpg')},
     {img: require('../../assets/publications/pub5.jpg')},
     {img: require('../../assets/publications/pub6.jpg')},
     {img: require('../../assets/publications/pub7.jpg')},
@@ -100,7 +102,7 @@ export default function profilsPublication ({navigation}) {
                 <TouchableHighlight
                     key={index} 
                     activeOpacity={0.8}
-                    underlayColor='rgb(96, 44, 201)'
+                    underlayColor={global.contrastColor}
                     onPress={() => navigation.navigate('Publications')}
                 >
                           <Image source={item.img} style={styles.image}></Image>

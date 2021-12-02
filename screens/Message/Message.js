@@ -19,7 +19,7 @@ export default class Message extends React.Component {
           <ScrollView 
             ref="scroll"
             style={{
-              backgroundColor: 'rgb(204, 179, 255)',
+              backgroundColor: global.color,
               }}
               showsVerticalScrollIndicator={false}
           >  
