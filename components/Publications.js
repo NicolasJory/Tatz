@@ -8,15 +8,52 @@ import { render } from 'react-dom';
 const width = Dimensions.get('window').width;
 const height = width * 1.3;
 
-const images = [
-    {img: require('../assets/publications/pub1.jpeg')},
-    {img: require('../assets/publications/pub2.jpg')},
-    {img: require('../assets/publications/pub3.jpg')},
-    {img: require('../assets/publications/pub4.jpg')},
-    {img: require('../assets/publications/pub5.jpg')},
-    {img: require('../assets/publications/pub6.jpg')},
-    {img: require('../assets/publications/pub7.jpg')},
-]
+const pubz = [
+    images=[
+        {img: require('../assets/publications/pub1.jpeg'),height:width},
+        {img: require('../assets/publications/pub2.jpg'),height:width},
+        {img: require('../assets/publications/pub3.jpg'),height:width},
+        {img: require('../assets/publications/pub4.jpg'),height:width},
+        {img: require('../assets/publications/pub5.jpg'),height:width},
+        {img: require('../assets/publications/pub6.jpg'),height:width},
+        {img: require('../assets/publications/pub7.jpg'),height:width},],
+    images=[
+        {img: require('../assets/publications/pub7.jpg'),height:width*0.5},
+        {img: require('../assets/publications/pub2.jpg'),height:width*0.5},
+        {img: require('../assets/publications/pub5.jpg'),height:width*0.5},
+    ],
+    images=[
+        {img: require('../assets/publications/pub3.jpg'),height:width*0.75},
+        {img: require('../assets/publications/pub6.jpg'),height:width*0.75},
+        {img: require('../assets/publications/pub1.jpeg'),height:width*0.75},
+    ],
+    images=[
+        {img: require('../assets/publications/pub4.jpg'),height:width*0.82},
+        {img: require('../assets/publications/pub7.jpg'),height:width*0.5},
+        {img: require('../assets/publications/pub2.jpg'),height:width*0.4},
+    ],
+    images=[
+        {img: require('../assets/publications/pub7.jpg'),height:width*1.4},
+        {img: require('../assets/publications/pub3.jpg'),height:width},
+        {img: require('../assets/publications/pub5.jpg'),height:width*1.2},
+    ],
+    images=[
+        {img: require('../assets/publications/pub6.jpg'),height:width*0.6},
+        {img: require('../assets/publications/pub5.jpg'),height:width*0.75},
+        {img: require('../assets/publications/pub3.jpg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../assets/publications/pub3.jpg'),height:width},
+        {img: require('../assets/publications/pub4.jpg'),height:width},
+        {img: require('../assets/publications/pub5.jpg'),height:width},
+    ],
+    images=[
+        {img: require('../assets/publications/pub3.jpg'),height:width*0.5},
+        {img: require('../assets/publications/pub4.jpg'),height:width*0.5},
+        {img: require('../assets/publications/pub5.jpg'),height:width*0.6},
+    ]
+];
+
 const Publis = [
     {route: 'Home',like:350, artist:'Rooler & Malice',studio: 'BTP',title: "Klapen", img: require('../assets/publications/pub1.jpeg'), pp: require('../assets/publications/pp.jpg'),desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper orci sed risus dapibus bibendum. Quisque sagittis mi quis sapien rhoncus, vitae ullamcorper enim maximus. Nullam nec auctor elit. Phasellus et pulvinar elit. Fusce pellentesque augue in elit mollis, sed mattis nisl iaculis. Vivamus maximus leo in leo scelerisque luctus. Aenean lobortis ac est vitae volutpat. Fusce dui augue, ultricies eu ante id, tincidunt vulputate ligula. Nulla a porta lectus. In in ligula lacus. Suspendisse in augue imperdiet, placerat tellus sed, ultricies velit."},
     {route: 'Home',like:7000, artist:'Marcel',studio: 'end of the world',title: "le mange-mort", img: require('../assets/publications/pub2.jpg'), pp: require('../assets/publications/pp.jpg'),desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper orci sed risus dapibus bibendum. Quisque sagittis mi quis sapien rhoncus, vitae ullamcorper enim maximus. Nullam nec auctor elit. Phasellus et pulvinar elit. Fusce pellentesque augue in elit mollis, sed mattis nisl iaculis. Vivamus maximus leo in leo scelerisque luctus. Aenean lobortis ac est vitae volutpat. Fusce dui augue, ultricies eu ante id, tincidunt vulputate ligula. Nulla a porta lectus. In in ligula lacus. Suspendisse in augue imperdiet, placerat tellus sed, ultricies velit."},
@@ -83,7 +120,7 @@ const Publication = ({navigation}) => {
                             <Text style={styles.studio}>{item.studio}</Text>
                         </View>                  
                     </View>
-                    <Caroussel size={width} images={images}/>
+                    <Caroussel images={pubz[index]}/>
                     <View style={styles.footer}>
                         <View style={styles.fav}>
                             <Icon  color={global.contrastColor} size={(width/15)} type={Icons[0].type} name={Icons[0].icon}/>
@@ -157,16 +194,14 @@ const styles = StyleSheet.create({
                     opacity: 0.7,
                 },
         footer:{
-            height: width*0.14,
+            height: width*0.1,
             width: width,
-            position: "absolute",
-            top : width*1.17,
+            marginTop: -(width/12)
         },
             fav:{
                 flexDirection:'row',
                 position: 'absolute',
                 margin:(width/50),
-                
             },
             ico:{
                 flexDirection:'row',

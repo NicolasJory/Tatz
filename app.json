@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "tatz",
+    "name": "Tatz",
     "slug": "tatz",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,11 +22,11 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#000000"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "description": "Little instagram like project gitLink: https://github.com/NicolasJory/Tatz",
+    "githubUrl": "https://github.com/NicolasJory/Tatz",
+    "primaryColor": "#000000"
   }
 }

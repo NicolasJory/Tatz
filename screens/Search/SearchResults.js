@@ -16,15 +16,52 @@ const Filter = [
     {type: "B & W"},
 ]
 
-const images = [
-    {img: require('../../assets/publications/pub1.jpeg')},
-    {img: require('../../assets/publications/pub2.jpg')},
-    {img: require('../../assets/publications/pub3.jpg')},
-    {img: require('../../assets/publications/pub4.jpg')},
-    {img: require('../../assets/publications/pub5.jpg')},
-    {img: require('../../assets/publications/pub6.jpg')},
-    {img: require('../../assets/publications/pub7.jpg')},
-]
+
+const pubz = [
+    images=[
+        {img: require('../../assets/publications/pub1.jpeg'),height:width*0.8},
+        {img: require('../../assets/publications/pub2.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub3.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub4.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub5.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub6.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub7.jpg'),height:width*0.8},],
+    images=[
+        {img: require('../../assets/publications/pub7.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub2.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub5.jpg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../../assets/publications/pub3.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub6.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub1.jpeg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../../assets/publications/pub4.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub7.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub2.jpg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../../assets/publications/pub7.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub3.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub5.jpg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../../assets/publications/pub6.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub5.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub3.jpg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../../assets/publications/pub3.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub4.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub5.jpg'),height:width*0.8},
+    ],
+    images=[
+        {img: require('../../assets/publications/pub3.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub4.jpg'),height:width*0.8},
+        {img: require('../../assets/publications/pub5.jpg'),height:width*0.8},
+    ]
+];
 const FetchResults = [
     {route: 'Home',like:350, artist:'Rooler & Malice',studio: 'BTP',title: "Klapen", img: require('../../assets/publications/pub1.jpeg'), pp: require('../../assets/publications/pp.jpg'),desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper orci sed risus dapibus bibendum. Quisque sagittis mi quis sapien rhoncus, vitae ullamcorper enim maximus. Nullam nec auctor elit. Phasellus et pulvinar elit. Fusce pellentesque augue in elit mollis, sed mattis nisl iaculis. Vivamus maximus leo in leo scelerisque luctus. Aenean lobortis ac est vitae volutpat. Fusce dui augue, ultricies eu ante id, tincidunt vulputate ligula. Nulla a porta lectus. In in ligula lacus. Suspendisse in augue imperdiet, placerat tellus sed, ultricies velit."},
     {route: 'Home',like:7000, artist:'Marcel',studio: 'end of the world',title: "le mange-mort", img: require('../../assets/publications/pub2.jpg'), pp: require('../../assets/publications/pp.jpg'),desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper orci sed risus dapibus bibendum. Quisque sagittis mi quis sapien rhoncus, vitae ullamcorper enim maximus. Nullam nec auctor elit. Phasellus et pulvinar elit. Fusce pellentesque augue in elit mollis, sed mattis nisl iaculis. Vivamus maximus leo in leo scelerisque luctus. Aenean lobortis ac est vitae volutpat. Fusce dui augue, ultricies eu ante id, tincidunt vulputate ligula. Nulla a porta lectus. In in ligula lacus. Suspendisse in augue imperdiet, placerat tellus sed, ultricies velit."},
@@ -44,7 +81,7 @@ const SearchResults = ({navigation}) => {
                 <View key={index} style={styles.resultStyle}>
                     <View style={styles.resutlItemStyle}>
                         <View style={styles.imageStyle}>
-                            <Caroussel size={width*0.7} images={images}/>   
+                            <Caroussel images={pubz[index]}/>   
                         </View>   
                         <View style={styles.footer}>
                                 <Image  style={styles.pp} source={item.pp}/>

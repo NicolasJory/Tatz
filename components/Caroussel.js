@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image,ImageBackground, Dimensions } from 'react-native';
 import React from 'react';
 
 const width = Dimensions.get('window').width;
@@ -17,27 +17,70 @@ export default class Caroussel extends React.Component {
     }
 
     render() {
+        var maxSize=0;
+        this.props.images.forEach(element => {
+            if (element.height>maxSize){maxSize=element.height}
+        })
         return (
-            <View style={styles(this.props.size).container}>
+
+            <View style={styles().container}>
                 <ScrollView 
                     pagingEnabled 
                     horizontal 
                     onScroll={this.change}
                     showsHorizontalScrollIndicator={false} 
                     style={styles().scroll}>
+
                     {
                         this.props.images.map((item,index) =>{
-                            return (
-                                <Image key={index} source={item.img} style={styles(this.props.size).image}></Image>
-                            )
+                            if ((maxSize>width) && (item.height!= maxSize)){
+                                return(
+                                    <ImageBackground 
+                                        style={{width:width, height:maxSize, justifyContent:'center'}}
+                                        resizeMode='cover'
+                                        source={item.img} 
+                                        blurRadius={7}
+                                    >
+                                        <Image key={index} source={item.img} style={styles(item.height).image}></Image>
+                                    </ImageBackground>
+                                )
+                            }else if((maxSize<width*0.8)){
+                                return(
+                                    <ImageBackground 
+                                        style={{width:width, height:width, justifyContent:'center'}}
+                                        resizeMode='cover'
+                                        source={item.img} 
+                                        blurRadius={10}
+                                    >
+                                        <Image key={index} source={item.img} style={styles(item.height).image}></Image>
+                                    </ImageBackground>
+                                )
+                            }else if((maxSize<=width) && (maxSize>=width*0.8) && (item.height!=maxSize)){
+                                return(
+                                    <ImageBackground 
+                                        style={{width:width, height:maxSize, justifyContent:'center'}}
+                                        resizeMode='cover'
+                                        source={item.img} 
+                                        blurRadius={7}
+                                    >
+                                        <Image key={index} source={item.img} style={styles(item.height).image}></Image>
+                                    </ImageBackground>
+                                )
+                            }else{
+                                return (
+                                    <Image key={index} source={item.img} style={styles(item.height).image}></Image>
+                                )
+                            }
                         })
                     }
                 </ScrollView>
                 <View style={styles().pagination}>
                     {
-                        this.props.images.map((i, index) => (
+                        this.props.images.map((item, index) => {
+                            return (
                             <Text key={index} style={index==this.state.active ? styles().pagingActiveText : styles().pagingText}>●</Text>
-                        ))
+                            )
+                        })
                     }
                     
                 </View>
@@ -49,7 +92,6 @@ export default class Caroussel extends React.Component {
 const styles = (props) => StyleSheet.create({
     container:{
         width,
-        height: props*1.1,
     },
     scroll:{
         width,
@@ -57,7 +99,8 @@ const styles = (props) => StyleSheet.create({
     image: {
         width,
         height: props,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
+        alignSelf:'center',
     },
     pagingText:{
         color: '#888',
@@ -71,9 +114,8 @@ const styles = (props) => StyleSheet.create({
     },
     pagination:{
         flexDirection:'row',
-        position:'absolute',
-        bottom:0,
-        alignSelf:'center'
+        alignSelf:'center',
+        marginTop: width/30,
     },
 });
 
