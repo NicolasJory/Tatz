@@ -39,12 +39,12 @@ export default class Caroussel extends React.Component {
                                         style={{width:width, height:maxSize, justifyContent:'center'}}
                                         resizeMode='cover'
                                         source={item.img} 
-                                        blurRadius={7}
+                                        blurRadius={10}
                                     >
                                         <Image key={index} source={item.img} style={styles(item.height).image}></Image>
                                     </ImageBackground>
                                 )
-                            }else if((maxSize<width*0.8)){
+                            }else if((maxSize<width*0.6)){
                                 return(
                                     <ImageBackground 
                                         style={{width:width, height:width, justifyContent:'center'}}
@@ -55,13 +55,13 @@ export default class Caroussel extends React.Component {
                                         <Image key={index} source={item.img} style={styles(item.height).image}></Image>
                                     </ImageBackground>
                                 )
-                            }else if((maxSize<=width) && (maxSize>=width*0.8) && (item.height!=maxSize)){
+                            }else if((maxSize<=width) && (maxSize>=width*0.6) && (item.height!=maxSize)){
                                 return(
                                     <ImageBackground 
                                         style={{width:width, height:maxSize, justifyContent:'center'}}
                                         resizeMode='cover'
                                         source={item.img} 
-                                        blurRadius={7}
+                                        blurRadius={10}
                                     >
                                         <Image key={index} source={item.img} style={styles(item.height).image}></Image>
                                     </ImageBackground>
